@@ -1,38 +1,24 @@
 #include "main.h"
-
 /**
- * cap_string - Capitalizes all words of a string.
- * @str: The string to be capitalized.
- *
- * Return: A pointer to the changed string.
+ * leet - encode into 1337speak
+ * @n: input value
+ * Return: n value
  */
-char *cap_string(char *str)
+char *leet(char *n)
 {
-	int index = 0;
+	int i, j;
+	char s1[] = "aAeEoOtTlL";
+	char s2[] = "4433007711";
 
-	while (str[index])
+	for (i = 0; n[i] != '\0'; i++)
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-
-		if (str[index - 1] == ' ' ||
-		    str[index - 1] == '\t' ||
-		    str[index - 1] == '\n' ||
-		    str[index - 1] == ',' ||
-		    str[index - 1] == ';' ||
-		    str[index - 1] == '.' ||
-		    str[index - 1] == '!' ||
-		    str[index - 1] == '?' ||
-		    str[index - 1] == '"' ||
-		    str[index - 1] == '(' ||
-		    str[index - 1] == ')' ||
-		    str[index - 1] == '{' ||
-		    str[index - 1] == '}' ||
-		    index == 0)
-			str[index] -= 32;
-
-		index++;
+		for (j = 0; j < 10; j++)
+		{
+			if (n[i] == s1[j])
+			{
+				n[i] = s2[j];
+			}
+		}
 	}
-
-	return (str);
+	return (n);
 }
